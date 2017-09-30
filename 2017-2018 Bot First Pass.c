@@ -23,8 +23,6 @@
 #include "definesVariables.h"
 #include "functions.h"
 
-bool nickIsAPenis = true;
-
 
 void pre_auton()
 {
