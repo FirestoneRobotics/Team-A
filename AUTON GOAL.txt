@@ -1,0 +1,17 @@
+Assume robot is perfectly aligned with cone.
+
+Drive robot forward. Stop after (x) distance.
+
+Grab Cone.
+
+Drive back a distance less than (x) so as to be aligned with the cone goal thingy.
+
+Turn robot 90 degrees to the left.
+
+Lift arm up an undefined distance.
+
+Move forward a short distance, so as to align cone with scoring goal.
+
+Move arm down to put cone on the scoring thing.
+
+Let go of cone.
