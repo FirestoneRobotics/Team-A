@@ -43,6 +43,42 @@ void clawCanMove()
 
 }
 
+void wristCanMove() //look at/change values for motor
+{
+		if(vexRT[Btn7U] == 1)
+	{
+		wrist = 127;
+	}
+
+	else if(vexRT[Btn7D] == 1)
+	{
+		wrist = -127;
+	}
+
+	else
+	{
+		wrist = 0;
+	}
+}
+
+void mobileGoalLifter()
+{
+		if(vexRT[Btn7U] == 1)
+	{
+		mobileGoal = 127;
+	}
+
+	else if(vexRT[Btn7D] == 1)
+	{
+		mobileGoal = -127;
+	}
+
+	else
+	{
+		mobileGoal = 0;
+	}
+}
+
 void stopDrivingClearSensor()
 {
  motor[leftB] = motor[leftF] = motor[rightB] = motor[rightF] = 127;
@@ -135,5 +171,7 @@ void batteryLED()
 		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 1;
 	}
 }
+
+
 
 //FUNCTIONS HOORAYE!

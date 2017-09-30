@@ -23,7 +23,6 @@
 #include "definesVariables.h"
 #include "functions.h"
 
-bool toriIsCool = true;
 
 
 void pre_auton()
