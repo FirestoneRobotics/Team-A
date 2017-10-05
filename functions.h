@@ -1,7 +1,7 @@
 void joystickControl()
 {
-motor[rightF] = motor[rightB] = vexRT[Ch2];
-motor[leftF] 	= motor[leftB] 	= vexRT[Ch3];
+	motor[driveR] 	= vexRT[Ch2];
+	motor[driveL] 	= vexRT[Ch3];
 }
 
 void armCanMove()
@@ -18,7 +18,7 @@ void armCanMove()
 
 	else
 	{
-		armMotors = 20;
+		armMotors = 0;
 	}
 }
 
@@ -43,72 +43,108 @@ void clawCanMove()
 
 }
 
+void mobileGoalLifterCanMove()
+{
+	if(vexRT[Btn7U] == 1)
+	{
+		motor[mobileL] = motor[mobileR] = 127;
+	}
+
+	else if(vexRT[Btn7D] == 1)
+	{
+		motor[mobileL] = motor[mobileR] = -127;
+	}
+
+	else
+	{
+		motor[mobileL] = motor[mobileR] = 0;
+	}
+}
+
+void wristCanMove()
+{
+	if(vexRT[Btn7U] == 1)
+	{
+		motor[clawR] = motor[clawL] = 127;
+	}
+
+	else if(vexRT[Btn7D] == 1)
+	{
+		motor[clawL] = motor[clawR] = -127;
+	}
+
+	else
+	{
+		motor[clawL] = motor[clawR] = 0;
+	}
+}
+
 void stopDrivingClearSensor()
 {
- motor[leftB] = motor[leftF] = motor[rightB] = motor[rightF] = 127;
- SensorValue(driveSensor) = 0;
+	motor[driveR] = motor[driveL] = 0;
+	SensorValue(driveSensor) = 0;
 }
 
 
-void driveDist(int dist)
-{
-	while(SensorValue[driveSensor] < dist)
-	{
-		driveHalfSpeed;
-	}
+//void driveDist(int dist)
+//{
+//	while(SensorValue[driveSensor] < dist)
+//	{
+//		driveHalfSpeed;
+//	}
 
-	stopDrivingClearSensor();
+//	stopDrivingClearSensor();
 
-	delay(250);
+//	delay(250);
 
-}
+//}
 
-void driveBackDist(int dist)
-{
-		while(SensorValue[driveSensor] > -dist)
-	{
-		driveBackHalfSpeed;
-	}
+//void driveBackDist(int dist)
+//{
+//		while(SensorValue[driveSensor] > -dist)
+//	{
+//		driveBackHalfSpeed;
+//	}
 
-	stopDrivingClearSensor();
+//	stopDrivingClearSensor();
 
-	delay(250);
+//	delay(250);
 
-}
+//}
 
-void turnR(int dist)
-{
+//void turnR(int dist)
+//{
 
-while(SensorValue(driveSensor) < dist)
-{
-	motor[rightB] = motor[rightF] = -60;
-	motor[leftB]  = motor[leftF]  = 60;
-}
+//while(SensorValue(driveSensor) < dist)
+//{
+//	motor[rightB] = motor[rightF] = -60;
+//	motor[leftB]  = motor[leftF]  = 60;
+//}
 
-stopDrivingClearSensor();
+//stopDrivingClearSensor();
 
-}
+//}
 
-void turnL(int dist)
-{
-while(SensorValue(driveSensor) < dist)
-{
-	motor[rightB] = motor[rightF] = 60;
-	motor[leftB]  = motor[leftF]  = -60;
-}
+//void turnL(int dist)
+//{
+//while(SensorValue(driveSensor) < dist)
+//{
+//	motor[rightB] = motor[rightF] = 60;
+//	motor[leftB]  = motor[leftF]  = -60;
+//}
 
-stopDrivingClearSensor();
-}
+//stopDrivingClearSensor();
+//}
 
-void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
-{
-	turnR(90);
-}
+//void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
+//{
+//	turnR(90);
+//}
 
-void turnL90()
-{
-	turnL(90);
-}
+//void turnL90()
+//{
+//	turnL(90);
+//}
 
 void batteryLCDScreen()
 {
