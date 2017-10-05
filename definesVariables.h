@@ -16,6 +16,10 @@
 
 #define claw motor[clawL] = motor[clawR]
 
+#define wrist motor[wristL] = motor[wristR]
+
+#define mobileGoal motor[mobileGoalL] = motor[mobileGoalR]
+
 #define liamIsBad true
 
 int battLevel = nImmediateBatteryLevel/1000;
