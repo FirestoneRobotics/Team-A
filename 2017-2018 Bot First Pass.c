@@ -36,14 +36,7 @@ void pre_auton()
 task autonomous()
 {
 
-	while(SensorValue(driveSensor) < 3000)
-	{
 
-		//motor[leftB] = motor[leftF] = motor[rightB] = motor[rightF] = 127;
-
-	}
-
-stopDrivingClearSensor();
 
 }
 
