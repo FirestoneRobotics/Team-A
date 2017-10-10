@@ -23,10 +23,6 @@
 #include "definesVariables.h"
 #include "functions.h"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 99e94935309fdd03c380b5ff15b02bb87eeef352
 
 void pre_auton()
 {
@@ -67,7 +63,7 @@ task usercontrol()
 
 		wristCanMove();
 
-		mobileGoalLifterCanMove();
+		mobileGoalLifter();
 
 		batteryLCDScreen();
 

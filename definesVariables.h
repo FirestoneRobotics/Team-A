@@ -18,7 +18,7 @@
 
 #define wrist motor[wristL] = motor[wristR]
 
-#define mobileGoal motor[mobileGoalL] = motor[mobileGoalR]
+#define mobileGoal motor[mobileL] = motor[mobileR]
 
 #define liamIsBad true
 

@@ -43,9 +43,9 @@ void clawCanMove()
 
 }
 
-<<<<<<< HEAD
-void mobileGoalLifterCanMove()
-=======
+
+
+
 void wristCanMove() //look at/change values for motor
 {
 		if(vexRT[Btn7U] == 1)
@@ -84,13 +84,12 @@ void mobileGoalLifter()
 
 void stopDrivingClearSensor()
 {
- motor[leftB] = motor[leftF] = motor[rightB] = motor[rightF] = 127;
+ motor[driveL] = motor[driveR] = 127;
  SensorValue(driveSensor) = 0;
 }
 
 
 void driveDist(int dist)
->>>>>>> 99e94935309fdd03c380b5ff15b02bb87eeef352
 {
 	if(vexRT[Btn7U] == 1)
 	{
@@ -108,29 +107,6 @@ void driveDist(int dist)
 	}
 }
 
-void wristCanMove()
-{
-	if(vexRT[Btn7U] == 1)
-	{
-		motor[clawR] = motor[clawL] = 127;
-	}
-
-	else if(vexRT[Btn7D] == 1)
-	{
-		motor[clawL] = motor[clawR] = -127;
-	}
-
-	else
-	{
-		motor[clawL] = motor[clawR] = 0;
-	}
-}
-
-void stopDrivingClearSensor()
-{
-	motor[driveR] = motor[driveL] = 0;
-	SensorValue(driveSensor) = 0;
-}
 
 
 //void driveDist(int dist)
