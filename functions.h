@@ -13,9 +13,8 @@ void armCanMove()
 
 	else if(vexRT[Btn5D] == 1)
 	{
-		armMotors = -20;
+		armMotors = -172;
 	}
-
 	else
 	{
 		armMotors = 0;
@@ -48,7 +47,7 @@ void clawCanMove()
 
 void wristCanMove() //look at/change values for motor
 {
-		if(vexRT[Btn6U] == 1)
+	if(vexRT[Btn6U] == 1)
 	{
 		wrist = 127;
 	}
@@ -66,7 +65,7 @@ void wristCanMove() //look at/change values for motor
 
 void mobileGoalLifter()
 {
-		if(vexRT[Btn7U] == 1)
+	if(vexRT[Btn7U] == 1)
 	{
 		mobileGoal = 127;
 	}
@@ -84,8 +83,8 @@ void mobileGoalLifter()
 
 void stopDrivingClearSensor()
 {
- motor[driveL] = motor[driveR] = 127;
- SensorValue(driveSensor) = 0;
+	motor[driveL] = motor[driveR] = 127;
+	SensorValue(driveSensor) = 0;
 }
 
 
