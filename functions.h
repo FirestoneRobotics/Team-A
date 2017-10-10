@@ -66,12 +66,12 @@ void wristCanMove() //look at/change values for motor
 
 void mobileGoalLifter()
 {
-		if(vexRT[Btn7U] == 1)
+		if(vexRT[Btn8U] == 1)
 	{
 		mobileGoal = 127;
 	}
 
-	else if(vexRT[Btn7D] == 1)
+	else if(vexRT[Btn8D] == 1)
 	{
 		mobileGoal = -127;
 	}
