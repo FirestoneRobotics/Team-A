@@ -26,12 +26,12 @@ void armCanMove()
 void clawCanMove()
 {
 
-	if(vexRT[Btn6U] == 1)
+	if(vexRT[Btn8U] == 1)
 	{
 		claw = 127;
 	}
 
-	else if(vexRT[Btn6D] == 1)
+	else if(vexRT[Btn8D] == 1)
 	{
 		claw = -127;
 	}
@@ -48,12 +48,12 @@ void clawCanMove()
 
 void wristCanMove() //look at/change values for motor
 {
-		if(vexRT[Btn7U] == 1)
+		if(vexRT[Btn6U] == 1)
 	{
 		wrist = 127;
 	}
 
-	else if(vexRT[Btn7D] == 1)
+	else if(vexRT[Btn6D] == 1)
 	{
 		wrist = -127;
 	}
@@ -66,12 +66,12 @@ void wristCanMove() //look at/change values for motor
 
 void mobileGoalLifter()
 {
-		if(vexRT[Btn8U] == 1)
+		if(vexRT[Btn7U] == 1)
 	{
 		mobileGoal = 127;
 	}
 
-	else if(vexRT[Btn8D] == 1)
+	else if(vexRT[Btn7D] == 1)
 	{
 		mobileGoal = -127;
 	}
