@@ -90,83 +90,68 @@ void stopDrivingClearSensor()
 
 void driveDist(int dist)
 {
-	if(vexRT[Btn7U] == 1)
+	while(SensorValue[driveSensor] < dist)
 	{
-		motor[mobileL] = motor[mobileR] = 127;
+		driveHalfSpeed;
 	}
 
-	else if(vexRT[Btn7D] == 1)
+	stopDrivingClearSensor();
+
+	delay(250);
+
+}
+
+void turnL(int dist)
+{
+	while(SensorValue[driveSensor] < dist)
 	{
-		motor[mobileL] = motor[mobileR] = -127;
+		motor[driveL] = -75;
+		motor[driveR] =  75;
 	}
 
-	else
+	stopDrivingClearSensor();
+
+	delay(250);
+
+}
+
+void turnR(int dist)
+{
+	while(SensorValue[driveSensor] > -dist)
 	{
-		motor[mobileL] = motor[mobileR] = 0;
+		motor[driveL] = 75;
+		motor[driveR] = -75;
 	}
+
+	stopDrivingClearSensor();
+
+	delay(250);
+
 }
 
 
+void driveBackDist(int dist)
+{
+		while(SensorValue[driveSensor] > -dist)
+	{
+		driveBackHalfSpeed;
+	}
 
-//void driveDist(int dist)
-//{
-//	while(SensorValue[driveSensor] < dist)
-//	{
-//		driveHalfSpeed;
-//	}
+	stopDrivingClearSensor();
 
-//	stopDrivingClearSensor();
+	delay(250);
 
-//	delay(250);
+}
 
-//}
+void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
+{
+	turnR(90);
+}
 
-//void driveBackDist(int dist)
-//{
-//		while(SensorValue[driveSensor] > -dist)
-//	{
-//		driveBackHalfSpeed;
-//	}
-
-//	stopDrivingClearSensor();
-
-//	delay(250);
-
-//}
-
-//void turnR(int dist)
-//{
-
-//while(SensorValue(driveSensor) < dist)
-//{
-//	motor[rightB] = motor[rightF] = -60;
-//	motor[leftB]  = motor[leftF]  = 60;
-//}
-
-//stopDrivingClearSensor();
-
-//}
-
-//void turnL(int dist)
-//{
-//while(SensorValue(driveSensor) < dist)
-//{
-//	motor[rightB] = motor[rightF] = 60;
-//	motor[leftB]  = motor[leftF]  = -60;
-//}
-
-//stopDrivingClearSensor();
-//}
-
-//void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
-//{
-//	turnR(90);
-//}
-
-//void turnL90()
-//{
-//	turnL(90);
-//}
+void turnL90()
+{
+	turnL(90);
+}
 
 void batteryLCDScreen()
 {
