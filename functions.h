@@ -43,8 +43,6 @@ void clawCanMove()
 }
 
 
-
-
 void wristCanMove() //look at/change values for motor
 {
 	if(vexRT[Btn6U] == 1)
@@ -79,6 +77,26 @@ void mobileGoalLifter()
 	{
 		mobileGoal = 0;
 	}
+}
+
+void moveArm(int speed)
+{
+	armMotors = speed;
+}
+
+void moveMobileGoal(int speed)
+{
+	mobileGoal = speed;
+}
+
+void moveWrist(int speed)
+{
+		wrist = speed;
+}
+
+void moveClaw(int speed)
+{
+		claw = speed;
 }
 
 void stopDrivingClearSensor()
