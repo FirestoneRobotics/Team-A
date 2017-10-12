@@ -34,7 +34,14 @@ void pre_auton()
 
 
 task autonomous()
-{
+{driveDist(500);
+
+	driveBackDist(500);
+
+	turnR90();
+
+
+
 
 
 
