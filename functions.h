@@ -13,7 +13,7 @@ void armCanMove()
 
 	else if(vexRT[Btn5D] == 1)
 	{
-		armMotors = -172;
+		armMotors = -127;
 	}
 	else
 	{
@@ -70,7 +70,7 @@ void mobileGoalLifter()
 
 	else if(vexRT[Btn7D] == 1)
 	{
-		mobileGoal = -127;
+		mobileGoal = -100;
 	}
 
 	else
