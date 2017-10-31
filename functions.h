@@ -1,4 +1,4 @@
-void joystickControl()
+ void joystickControl()
 {
 	motor[driveR] 	= vexRT[Ch2];
 	motor[driveL] 	= vexRT[Ch3];
