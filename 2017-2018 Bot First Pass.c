@@ -34,17 +34,19 @@ void pre_auton()
 
 
 task autonomous()
-{driveDist(500);
+{
 
-	liftArm(127);
+	//driveDist(500);
 
-	moveMobileGoal(127);
+	//liftArm(127);
 
-	driveBackDist(500);
+	//moveMobileGoal(127);
 
-	turnR90();
+	//driveBackDist(500);
 
-	moveMobileGoal(-127);
+	//turnR90();
+
+	//moveMobileGoal(-127);
 
 
 }
