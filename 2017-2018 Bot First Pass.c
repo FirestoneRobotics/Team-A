@@ -1,3 +1,4 @@
+#pragma config(Sensor, in1,    clawPotato,     sensorPotentiometer)
 #pragma config(Sensor, dgtl1,  driveSensor,    sensorQuadEncoder)
 #pragma config(Sensor, dgtl3,  armSensor,      sensorQuadEncoder)
 #pragma config(Sensor, dgtl5,  clawSensor,     sensorQuadEncoder)
@@ -36,31 +37,35 @@ void pre_auton()
 task autonomous()
 {
 
+stopDrivingClearSensor();
 
-	moveMobileGoal(-75);
-	driveDist(500);
+claw = -127;
+delay(250);
 
-	moveMobileGoal(0);
-	driveDist(250);
+claw = 0;
+armMotors = 127;
+wrist = 75;
+delay(2000);
 
-	moveMobileGoal(127);
-	driveBackDist(500);
+armMotors = 40;
+while(SensorValue[driveSensor] < 500)
+{
+ drive = 63;
+}
+stopDrivingClearSensor();
+delay(500);
 
+armMotors = -50;
+delay(1000);
 
-	//driveDist(500);
+//stopDrivingClearSensor();
+//claw = -127;
+//delay(250);
 
-	//liftArm(127);
-
-	//moveMobileGoal(127);
-
-	//driveBackDist(500);
-
-	//turnR90();
-
-	//moveMobileGoal(-127);
-
-	moveMobileGoal(0);
-	driveBackDist(250);
+//while(SensorValue[driveSensor] > -1000)
+//{
+// drive = -63;
+//}
 
 }
 

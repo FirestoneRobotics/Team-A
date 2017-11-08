@@ -101,7 +101,7 @@ void moveClaw(int speed)
 
 void stopDrivingClearSensor()
 {
-	motor[driveL] = motor[driveR] = 127;
+	motor[driveL] = motor[driveR] = 0;
 	SensorValue(driveSensor) = 0;
 }
 
@@ -115,7 +115,7 @@ void driveDist(int dist)
 
 	stopDrivingClearSensor();
 
-	delay(250);
+	delay(100);
 
 }
 
@@ -159,6 +159,11 @@ void driveBackDist(int dist)
 
 	delay(250);
 
+}
+
+void driveAndLiftArm(int dist)
+{
+driveDist(dist);
 }
 
 void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
