@@ -102,7 +102,7 @@ void moveClaw(int speed)
 void stopDrivingClearSensor()
 {
 	motor[driveL] = motor[driveR] = 0;
-	SensorValue(driveSensor) = 0;
+	SensorValue(driveSensor) = SensorValue(driveLeftSensor) = 0;
 }
 
 
