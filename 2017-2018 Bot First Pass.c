@@ -1,10 +1,10 @@
-#pragma config(Sensor, dgtl1,  driveSensor,    sensorQuadEncoder)
+#pragma config(Sensor, dgtl1,  driveRightSensor, sensorQuadEncoder)
 #pragma config(Sensor, dgtl3,  armSensor,      sensorQuadEncoder)
-#pragma config(Sensor, dgtl5,  clawSensor,     sensorQuadEncoder)
-#pragma config(Sensor, dgtl7,  greenLED1,      sensorLEDtoVCC)
-#pragma config(Sensor, dgtl8,  greenLED2,      sensorLEDtoVCC)
+#pragma config(Sensor, dgtl5,  driveSensor,    sensorQuadEncoder)
 #pragma config(Sensor, dgtl9,  redLED1,        sensorLEDtoVCC)
 #pragma config(Sensor, dgtl10, redLED2,        sensorLEDtoVCC)
+#pragma config(Sensor, dgtl11, greenLED1,      sensorLEDtoVCC)
+#pragma config(Sensor, dgtl12, greenLED2,      sensorLEDtoVCC)
 #pragma config(Motor,  port1,           mobileL,       tmotorVex393_HBridge, openLoop, reversed)
 #pragma config(Motor,  port2,           driveL,        tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           driveR,        tmotorVex393_MC29, openLoop, reversed)
@@ -35,35 +35,34 @@ void pre_auton()
 
 task autonomous()
 {
+	stopDrivingClearSensor();
 
+	while(SensorValue(driveSensor) < 1500)
+	{
 
-	moveMobileGoal(-75);
-	driveDist(500);
+		wrist = 100;
 
-	moveMobileGoal(0);
-	driveDist(250);
+		motor[mobileL] = 100;
+		motor[mobileR] = 100;
 
-	moveMobileGoal(127);
-	driveBackDist(500);
+		drive = 120;
 
+	}
+	stopDrivingClearSensor();
 
-	//driveDist(500);
+	motor[mobileL] = -127;
+	motor[mobileR] = -127;
 
-	//liftArm(127);
+	delay(1450);
 
-	//moveMobileGoal(127);
+	stopMoving();
 
-	//driveBackDist(500);
-
-	//turnR90();
-
-	//moveMobileGoal(-127);
-
-	moveMobileGoal(0);
-	driveBackDist(250);
-
+	while(sensorValue(driveSensor) < 500)
+	{
+		drive = -120;
+	}
+	stopDrivingClearSensor()
 }
-
 
 
 task usercontrol()
@@ -85,6 +84,7 @@ task usercontrol()
 		batteryLCDScreen();
 
 		batteryLED();
+
 
 	}
 }

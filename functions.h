@@ -101,7 +101,7 @@ void moveClaw(int speed)
 
 void stopDrivingClearSensor()
 {
-	motor[driveL] = motor[driveR] = 127;
+	motor[driveL] = motor[driveR] = 0;
 	SensorValue(driveSensor) = 0;
 }
 
@@ -195,6 +195,20 @@ void batteryLED()
 		SensorValue(greenLED1) = SensorValue(greenLED2) = 0;
 		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 1;
 	}
+}
+
+	void stopMoving()
+{
+		motor[armL] = 0;
+		motor[armR] = 0;
+		motor[clawL] = 0;
+		motor[clawR] = 0;
+		motor[driveL] = 0;
+		motor[driveR] = 0;
+		motor[mobileL] = 0;
+		motor[mobileR] = 0;
+		motor[wristL] = 0;
+		motor[wristR] = 0;
 }
 
 
