@@ -102,26 +102,28 @@ void moveClaw(int speed)
 void stopDrivingClearSensor()
 {
 	motor[driveL] = motor[driveR] = 0;
-	SensorValue(driveSensor) = 0;
+
+	SensorValue(driveLeftSensor) = SensorValue(driveLeftSensor) = 0;
+
 }
 
 
 void driveDist(int dist)
 {
-	while(SensorValue[driveSensor] < dist)
+	while(SensorValue[driveRightSensor] < dist)
 	{
 		driveHalfSpeed;
 	}
 
 	stopDrivingClearSensor();
 
-	delay(250);
+	delay(100);
 
 }
 
 void turnL(int dist)
 {
-	while(SensorValue[driveSensor] < dist)
+	while(SensorValue[driveLeftSensor] > -dist)
 	{
 		motor[driveL] = -75;
 		motor[driveR] =  75;
@@ -135,10 +137,10 @@ void turnL(int dist)
 
 void turnR(int dist)
 {
-	while(SensorValue[driveSensor] > -dist)
+	while(SensorValue[driveLeftSensor] > -dist)
 	{
-		motor[driveL] = 75;
-		motor[driveR] = -75;
+		motor[driveL] = -75;
+		motor[driveR] = 75;
 	}
 
 	stopDrivingClearSensor();
@@ -150,7 +152,7 @@ void turnR(int dist)
 
 void driveBackDist(int dist)
 {
-		while(SensorValue[driveSensor] > -dist)
+		while(SensorValue[driveLeftSensor] > -dist)
 	{
 		driveBackHalfSpeed;
 	}
@@ -159,6 +161,11 @@ void driveBackDist(int dist)
 
 	delay(250);
 
+}
+
+void driveAndLiftArm(int dist)
+{
+driveDist(dist);
 }
 
 void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
@@ -211,6 +218,9 @@ void batteryLED()
 		motor[wristR] = 0;
 }
 
-
+void dontForget()
+{
+	stopMoving();
+}
 
 //FUNCTIONS HOORAYE!
