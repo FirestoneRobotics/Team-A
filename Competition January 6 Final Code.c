@@ -25,7 +25,7 @@
 #include "Vex_Competition_Includes.c"
 #include "definesVariables.h"
 #include "functions.h"
-
+#include "autonomousFunctions.h"
 
 void pre_auton()
 {
@@ -170,50 +170,64 @@ task autonomous()
 	stopMoving();
 
 	*/
-	stopDrivingClearSensor();										//TWO PT, WHILE OTHER TEAM 20'S
+	//stopDrivingClearSensor();										//TWO PT, WHILE OTHER TEAM 20'S
 
-	while(sensorValue(driveLeftSensor) < 800)
-	{
-		motor[wristL] = motor[wristR] = 127;
-		motor[armL] = motor[armR] = 127;
-		drive = 69;
-	}
+	//while(sensorValue(driveLeftSensor) < 800)
+	//{
+	//	motor[wristL] = motor[wristR] = 127;
+	//	motor[armL] = motor[armR] = 127;
+	//	drive = 69;
+	//}
 
-	stopDrivingClearSensor();
+	//stopDrivingClearSensor();
 
-	motor[armL] = motor[armR] = -127;
-	delay(750);
+	//motor[armL] = motor[armR] = -127;
+	//delay(750);
 
-	moveClaw(-127);
-	delay(200);
+	//moveClaw(-127);
+	//delay(200);
 
-	while(sensorValue(driveLeftSensor) > -550)
-	{
-		drive = -100;
-	}
+	//while(sensorValue(driveLeftSensor) > -550)
+	//{
+	//	drive = -100;
+	//}
 
-	stopDrivingClearSensor();
+	//stopDrivingClearSensor();
 
-	turnL(360);
+	//turnL(360);
 
-	while(sensorValue(driveLeftSensor) < 700)
-	{
-		drive = 100;
-		motor(mobileL) = motor(mobileR) = 127
-	}
+	//while(sensorValue(driveLeftSensor) < 700)
+	//{
+	//	drive = 100;
+	//	motor(mobileL) = motor(mobileR) = 127
+	//}
 
-	stopDrivingClearSensor();
+	//stopDrivingClearSensor();
 
-	while(sensorValue(driveLeftSensor) < 700)
-	{
-		drive = 100;
-	}
+	//while(sensorValue(driveLeftSensor) < 700)
+	//{
+	//	drive = 100;
+	//}
 
-	stopDrivingClearSensor();
+	//stopDrivingClearSensor();
 
-	motor(mobileL) = -127;
-	motor(mobileR) = -127;
-	delay(2000);
+	//motor(mobileL) = -127;
+	//motor(mobileR) = -127;
+	//delay(2000);
+
+
+
+	//AUTON VOID DECLARATIONS
+
+	auton10PointRed();
+	//auton10PointBlue();
+	//auton2point();
+	//autonSkills();
+
+
+
+
+
 
 }
 
