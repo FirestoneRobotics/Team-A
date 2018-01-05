@@ -1,14 +1,14 @@
 #define drive motor[driveL] = motor[driveR]
 
-//#define driveForward motor[rightB] = motor[leftB] = motor[rightF] = motor[leftF] = 127
+#define driveForward motor[driveL] = motor[driveR] = 127
 
-//#define driveHalfSpeed motor[rightB] = motor[leftB] = motor[rightF] = motor[leftF] = 60
+#define driveBackHalfSpeed motor[driveL] = motor[driveR] = -75
 
-//#define driveBack motor[rightB] = motor[leftB] = motor[rightF] = motor[leftF] = -127
+#define driveHalfSpeed motor[driveL] = motor[driveR] = 75
 
-//#define driveBackHalfSpeed motor[rightB] = motor[leftB] = motor[rightF] = motor[leftF] = -60
+#define driveBack motor[driveL] = motor[driveR] = -127
 
-//#define stopDriving motor[rightB] = motor[leftB] = motor[rightF] = motor[leftF] = 0
+#define stopDriving motor[driveL] = motor[driveR] = 0
 
 #define clearSensors SensorValue[driveSensor] = 0
 
@@ -18,7 +18,7 @@
 
 #define wrist motor[wristL] = motor[wristR]
 
-#define mobileGoal motor[mobileGoalL] = motor[mobileGoalR]
+#define mobileGoal motor[mobileL] = motor[mobileR]
 
 #define liamIsBad true
 

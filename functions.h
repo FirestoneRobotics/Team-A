@@ -1,4 +1,4 @@
-void joystickControl()
+ void joystickControl()
 {
 	motor[driveR] 	= vexRT[Ch2];
 	motor[driveL] 	= vexRT[Ch3];
@@ -13,9 +13,8 @@ void armCanMove()
 
 	else if(vexRT[Btn5D] == 1)
 	{
-		armMotors = -20;
+		armMotors = -127;
 	}
-
 	else
 	{
 		armMotors = 0;
@@ -26,12 +25,12 @@ void armCanMove()
 void clawCanMove()
 {
 
-	if(vexRT[Btn6U] == 1)
+	if(vexRT[Btn8U] == 1)
 	{
 		claw = 127;
 	}
 
-	else if(vexRT[Btn6D] == 1)
+	else if(vexRT[Btn8D] == 1)
 	{
 		claw = -127;
 	}
@@ -43,17 +42,15 @@ void clawCanMove()
 
 }
 
-<<<<<<< HEAD
-void mobileGoalLifterCanMove()
-=======
+
 void wristCanMove() //look at/change values for motor
 {
-		if(vexRT[Btn7U] == 1)
+	if(vexRT[Btn6U] == 1)
 	{
 		wrist = 127;
 	}
 
-	else if(vexRT[Btn7D] == 1)
+	else if(vexRT[Btn6D] == 1)
 	{
 		wrist = -127;
 	}
@@ -66,14 +63,14 @@ void wristCanMove() //look at/change values for motor
 
 void mobileGoalLifter()
 {
-		if(vexRT[Btn7U] == 1)
+	if(vexRT[Btn7U] == 1)
 	{
 		mobileGoal = 127;
 	}
 
 	else if(vexRT[Btn7D] == 1)
 	{
-		mobileGoal = -127;
+		mobileGoal = -100;
 	}
 
 	else
@@ -82,116 +79,104 @@ void mobileGoalLifter()
 	}
 }
 
+void moveArm(int speed)
+{
+	armMotors = speed;
+}
+
+void moveMobileGoal(int speed)
+{
+	mobileGoal = speed;
+}
+
+void moveWrist(int speed)
+{
+		wrist = speed;
+}
+
+void moveClaw(int speed)
+{
+		claw = speed;
+}
+
 void stopDrivingClearSensor()
 {
- motor[leftB] = motor[leftF] = motor[rightB] = motor[rightF] = 127;
- SensorValue(driveSensor) = 0;
+	motor[driveL] = motor[driveR] = 0;
+
+	SensorValue(driveLeftSensor) = SensorValue(driveLeftSensor) = 0;
+
 }
 
 
 void driveDist(int dist)
->>>>>>> 99e94935309fdd03c380b5ff15b02bb87eeef352
 {
-	if(vexRT[Btn7U] == 1)
+	while(SensorValue[driveRightSensor] < dist)
 	{
-		motor[mobileL] = motor[mobileR] = 127;
+		driveHalfSpeed;
 	}
 
-	else if(vexRT[Btn7D] == 1)
-	{
-		motor[mobileL] = motor[mobileR] = -127;
-	}
+	stopDrivingClearSensor();
 
-	else
-	{
-		motor[mobileL] = motor[mobileR] = 0;
-	}
+	delay(100);
+
 }
 
-void wristCanMove()
+void turnL(int dist)
 {
-	if(vexRT[Btn7U] == 1)
+	while(SensorValue[driveLeftSensor] > -dist)
 	{
-		motor[clawR] = motor[clawL] = 127;
+		motor[driveL] = -75;
+		motor[driveR] =  75;
 	}
 
-	else if(vexRT[Btn7D] == 1)
-	{
-		motor[clawL] = motor[clawR] = -127;
-	}
+	stopDrivingClearSensor();
 
-	else
-	{
-		motor[clawL] = motor[clawR] = 0;
-	}
+	delay(250);
+
 }
 
-void stopDrivingClearSensor()
+void turnR(int dist)
 {
-	motor[driveR] = motor[driveL] = 0;
-	SensorValue(driveSensor) = 0;
+	while(SensorValue[driveLeftSensor] < dist)
+	{
+		motor[driveL] = 75;
+		motor[driveR] = -75;
+	}
+
+	stopDrivingClearSensor();
+
+	delay(250);
+
 }
 
 
-//void driveDist(int dist)
-//{
-//	while(SensorValue[driveSensor] < dist)
-//	{
-//		driveHalfSpeed;
-//	}
+void driveBackDist(int dist)
+{
+		while(SensorValue[driveLeftSensor] > -dist)
+	{
+		driveBackHalfSpeed;
+	}
 
-//	stopDrivingClearSensor();
+	stopDrivingClearSensor();
 
-//	delay(250);
+	delay(250);
 
-//}
+}
 
-//void driveBackDist(int dist)
-//{
-//		while(SensorValue[driveSensor] > -dist)
-//	{
-//		driveBackHalfSpeed;
-//	}
+void driveAndLiftArm(int dist)
+{
+driveDist(dist);
+}
 
-//	stopDrivingClearSensor();
+void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
+{
+	turnR(90);
+}
 
-//	delay(250);
-
-//}
-
-//void turnR(int dist)
-//{
-
-//while(SensorValue(driveSensor) < dist)
-//{
-//	motor[rightB] = motor[rightF] = -60;
-//	motor[leftB]  = motor[leftF]  = 60;
-//}
-
-//stopDrivingClearSensor();
-
-//}
-
-//void turnL(int dist)
-//{
-//while(SensorValue(driveSensor) < dist)
-//{
-//	motor[rightB] = motor[rightF] = 60;
-//	motor[leftB]  = motor[leftF]  = -60;
-//}
-
-//stopDrivingClearSensor();
-//}
-
-//void turnR90() //Assuming One Sensor, on Right Side of DriveTrain
-//{
-//	turnR(90);
-//}
-
-//void turnL90()
-//{
-//	turnL(90);
-//}
+void turnL90()
+{
+	turnL(90);
+}
 
 void batteryLCDScreen()
 {
@@ -219,6 +204,23 @@ void batteryLED()
 	}
 }
 
+	void stopMoving()
+{
+		motor[armL] = 0;
+		motor[armR] = 0;
+		motor[clawL] = 0;
+		motor[clawR] = 0;
+		motor[driveL] = 0;
+		motor[driveR] = 0;
+		motor[mobileL] = 0;
+		motor[mobileR] = 0;
+		motor[wristL] = 0;
+		motor[wristR] = 0;
+}
 
+void dontForget()
+{
+	stopMoving();
+}
 
 //FUNCTIONS HOORAYE!
