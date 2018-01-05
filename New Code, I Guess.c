@@ -168,7 +168,7 @@ task autonomous()
 	}
 
 	stopMoving();
-	*/
+
 
 	stopDrivingClearSensor();										//TWO PT, WHILE OTHER TEAM 20'S
 
@@ -200,11 +200,36 @@ task autonomous()
 	{
 		drive = 100;
 	}
-
+*/
 	stopDrivingClearSensor();
 
 
+while(sensorValue(driveLeftSensor) < 250)			 //skils
+	{
+		drive = 100;
+		moveWrist(127);
+	}
 
+		stopDrivingClearSensor();
+
+while(sensorValue(driveLeftSensor) < 600)
+	{
+		moveMobileGoal(127);
+		drive = 100;
+	}
+	stopdrivingclearSensor();
+
+	moveMobileGoal(-127);
+	delay(1000);
+
+	moveWrist(127);
+
+	delay(500)
+
+	moveClaw(-127);
+	delay(200);
+
+	turnR(700);
 }
 
 task usercontrol()

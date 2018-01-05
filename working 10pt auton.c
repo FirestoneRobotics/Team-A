@@ -46,12 +46,12 @@ task autonomous()
 	while(SensorValue(driveLeftSensor) < 1400)
 	{
 
-		wrist = 127;
+	wrist = 127;
 
-		motor[mobileL] = 127;
-		motor[mobileR] = 127;
+	motor[mobileL] = 127;
+	motor[mobileR] = 127;
 
-		drive = 127;
+	drive = 127;
 
 	}
 	stopDrivingClearSensor();
@@ -73,7 +73,7 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) > -1350)
 	{
-		drive = -127;
+	drive = -127;
 	}
 
 	stopDrivingClearSensor();
@@ -83,7 +83,7 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) < 100)
 	{
-		drive = 127;
+	drive = 127;
 	}
 
 	motor[mobileL]= motor[mobileR] = 127;
@@ -91,33 +91,33 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) > -100)
 	{
-		drive = -127;
-		motor[mobileL]= motor[mobileR] = 0;
+	drive = -127;
+	motor[mobileL]= motor[mobileR] = 0;
 	}
 
 	while(SensorValue(driveLeftSensor) > -550)
 	{
-		drive = -127;
-		motor[mobileL]= motor[mobileR] = -127;
+	drive = -127;
+	motor[mobileL]= motor[mobileR] = -127;
 	}
 
 	stopMoving();
 
 
 
-		stopDrivingClearSensor();
+	stopDrivingClearSensor();
 
 
 
 	while(SensorValue(driveLeftSensor) < 1400) 									//BLUE
 	{
 
-		wrist = 127;
+	wrist = 127;
 
-		motor[mobileL] = 100;
-		motor[mobileR] = 100;
+	motor[mobileL] = 100;
+	motor[mobileR] = 100;
 
-		drive = 120;
+	drive = 120;
 
 	}
 	stopDrivingClearSensor();
@@ -139,7 +139,7 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) > -1350)
 	{
-		drive = -127;
+	drive = -127;
 	}
 
 	stopDrivingClearSensor();
@@ -149,7 +149,7 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) < 100)
 	{
-		drive = 127;
+	drive = 127;
 	}
 
 	motor[mobileL]= motor[mobileR] = 127;
@@ -157,22 +157,22 @@ task autonomous()
 
 	while(SensorValue(driveLeftSensor) > -100)
 	{
-		drive = -127;
-		motor[mobileL]= motor[mobileR] = 0;
+	drive = -127;
+	motor[mobileL]= motor[mobileR] = 0;
 	}
 
 	while(SensorValue(driveLeftSensor) > -550)
 	{
-		drive = -127;
-		motor[mobileL]= motor[mobileR] = -127;
+	drive = -127;
+	motor[mobileL]= motor[mobileR] = -127;
 	}
 
 	stopMoving();
-	*/
 
+	*/
 	stopDrivingClearSensor();										//TWO PT, WHILE OTHER TEAM 20'S
 
-	while(sensorValue(driveLeftSensor) < 550)
+	while(sensorValue(driveLeftSensor) < 800)
 	{
 		motor[wristL] = motor[wristR] = 127;
 		motor[armL] = motor[armR] = 127;
@@ -182,50 +182,60 @@ task autonomous()
 	stopDrivingClearSensor();
 
 	motor[armL] = motor[armR] = -127;
-	delay(500);
+	delay(750);
 
 	moveClaw(-127);
 	delay(200);
 
-	while(sensorValue(driveLeftSensor) > -275)
+	while(sensorValue(driveLeftSensor) > -550)
 	{
-		drive = -63;
+		drive = -100;
 	}
 
 	stopDrivingClearSensor();
 
-	turnL(175);
+	turnL(360);
 
-		while(sensorValue(driveLeftSensor) < 1600)
+	while(sensorValue(driveLeftSensor) < 700)
+	{
+		drive = 100;
+		motor(mobileL) = motor(mobileR) = 127
+	}
+
+	stopDrivingClearSensor();
+
+	while(sensorValue(driveLeftSensor) < 700)
 	{
 		drive = 100;
 	}
 
 	stopDrivingClearSensor();
 
-
+	motor(mobileL) = -127;
+	motor(mobileR) = -127;
+	delay(2000);
 
 }
 
 task usercontrol()
 {
 
-	while(true)
-	{
+while(true)
+{
 
-		joystickControl();
+	joystickControl();
 
-		armCanMove();
+	armCanMove();
 
-		clawCanMove();
+	clawCanMove();
 
-		wristCanMove();
+	wristCanMove();
 
-		mobileGoalLifter();
+	mobileGoalLifter();
 
-		batteryLCDScreen();
+	batteryLCDScreen();
 
-		batteryLED();
+	batteryLED();
 
-	}
+}
 }

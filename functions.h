@@ -137,10 +137,10 @@ void turnL(int dist)
 
 void turnR(int dist)
 {
-	while(SensorValue[driveLeftSensor] > -dist)
+	while(SensorValue[driveLeftSensor] < dist)
 	{
-		motor[driveL] = -75;
-		motor[driveR] = 75;
+		motor[driveL] = 75;
+		motor[driveR] = -75;
 	}
 
 	stopDrivingClearSensor();
