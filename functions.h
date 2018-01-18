@@ -103,7 +103,7 @@ void stopDrivingClearSensor()
 {
 	motor[driveL] = motor[driveR] = 0;
 
-	SensorValue(driveLeftSensor) = SensorValue(driveLeftSensor) = 0;
+	SensorValue(driveSensor) = SensorValue(driveRightSensor) = SensorValue[gyro] = 0;
 
 }
 
@@ -123,7 +123,7 @@ void driveDist(int dist)
 
 void turnL(int dist)
 {
-	while(SensorValue[driveLeftSensor] > -dist)
+	while(SensorValue[driveSensor] > -dist)
 	{
 		motor[driveL] = -75;
 		motor[driveR] =  75;
@@ -137,7 +137,7 @@ void turnL(int dist)
 
 void turnR(int dist)
 {
-	while(SensorValue[driveLeftSensor] < dist)
+	while(SensorValue[driveSensor] < dist)
 	{
 		motor[driveL] = 75;
 		motor[driveR] = -75;
@@ -152,7 +152,7 @@ void turnR(int dist)
 
 void driveBackDist(int dist)
 {
-		while(SensorValue[driveLeftSensor] > -dist)
+		while(SensorValue[driveSensor] > -dist)
 	{
 		driveBackHalfSpeed;
 	}
@@ -189,20 +189,20 @@ void batteryLCDScreen()
 	displayNextLCDNumber(battLevel);
 }
 
-void batteryLED()
-{
-	if(nImmediateBatteryLevel > 8000)
-	{
-		SensorValue(greenLED1) = SensorValue(greenLED2) = 1;
-		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 0;
-	}
+//void batteryLED()
+//{
+//	if(nImmediateBatteryLevel > 8000)
+//	{
+//		SensorValue(greenLED1) = SensorValue(greenLED2) = 1;
+//		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 0;
+//	}
 
-	else
-	{
-		SensorValue(greenLED1) = SensorValue(greenLED2) = 0;
-		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 1;
-	}
-}
+//	else
+//	{
+//		SensorValue(greenLED1) = SensorValue(greenLED2) = 0;
+//		SensorValue(redLED1) 	 = SensorValue(redLED2) 	= 1;
+//	}
+//}
 
 	void stopMoving()
 {
