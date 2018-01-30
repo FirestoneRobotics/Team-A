@@ -27,7 +27,7 @@ void auton10PointRed()
 
 	stopMoving();
 
-	motor(clawR) = 127;
+	motor(clawMotor) = 127;
 
 	stopDrivingClearSensor();
 
@@ -96,7 +96,7 @@ void auton10PointBlue()
 
 	stopMoving();
 
-	motor(clawR) = 127;
+	motor(clawMotor) = 127;
 
 	stopDrivingClearSensor();
 
@@ -140,7 +140,7 @@ void auton2point()
 
 	while(SensorValue(driveSensor) < 800)
 	{
-		motor[wristL] = motor[wristR] = 127;
+		motor[wristMotor] = 127;
 		motor[armL] = motor[armR] = 127;
 		drive = 69;
 	}
@@ -208,7 +208,7 @@ void blue20point()
 
 	stopMoving();
 
-	motor(clawR) = 127;
+	motor(clawMotor) = 127;
 
 	stopDrivingClearSensor();
 
@@ -276,7 +276,7 @@ void autonSkills()
 	delay(750);
 
 	claw = -127;
-	mobileGoal = 0
+	mobileGoal = 0;
 	delay(500);
 	claw = 0;
 

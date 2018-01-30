@@ -1,7 +1,7 @@
  void joystickControl()
 {
-	motor[driveR] 	= vexRT[Ch2];
-	motor[driveL] 	= vexRT[Ch3];
+  motor[driveR1] = motor[driveR2]	= vexRT[Ch2];
+	motor[driveL1] = motor[driveL2] = vexRT[Ch3];
 }
 
 void armCanMove()
@@ -101,7 +101,7 @@ void moveClaw(int speed)
 
 void stopDrivingClearSensor()
 {
-	motor[driveL] = motor[driveR] = 0;
+	 motor[driveL1] = motor[driveR1] = motor[driveL2] = motor[driveR2] = 0;
 
 	SensorValue(driveSensor) = SensorValue(driveRightSensor) = SensorValue[gyro] = 0;
 
@@ -125,8 +125,8 @@ void turnL(int dist)
 {
 	while(SensorValue[driveSensor] > -dist)
 	{
-		motor[driveL] = -75;
-		motor[driveR] =  75;
+		motor[driveL1] = motor[driveL2] = -75;
+		motor[driveR1] = motor[driveR2] = 75;
 	}
 
 	stopDrivingClearSensor();
@@ -139,8 +139,8 @@ void turnR(int dist)
 {
 	while(SensorValue[driveSensor] < dist)
 	{
-		motor[driveL] = 75;
-		motor[driveR] = -75;
+		motor[driveL1] = motor[driveL2] = 75;
+		motor[driveR1] = motor[driveR2] = -75;
 	}
 
 	stopDrivingClearSensor();
@@ -208,14 +208,12 @@ void batteryLCDScreen()
 {
 		motor[armL] = 0;
 		motor[armR] = 0;
-		motor[clawL] = 0;
-		motor[clawR] = 0;
-		motor[driveL] = 0;
-		motor[driveR] = 0;
+		motor[clawMotor] = 0;
+		motor[driveL1] = motor[driveL2] = 0;
+		motor[driveR1] = motor[driveR2] = 0;
 		motor[mobileL] = 0;
 		motor[mobileR] = 0;
-		motor[wristL] = 0;
-		motor[wristR] = 0;
+		motor[wristMotor] = 0;
 }
 
 void dontForget()
