@@ -252,87 +252,97 @@ void autonSkills()
 
 	stopDrivingClearSensor();
 
-	while(SensorValue(driveSensor) < 200)
-	{
-		wrist = 127;
-		mobileGoal = 127;
-		drive = 69;
-	}
-
-	while(SensorValue(driveSensor) < 1000)
-	{
-		wrist = 20;
-		mobileGoal = 0;
-		drive = 69;
-	}
-
-	wrist = 0;
-	mobileGoal = 0;
-
-	stopDrivingClearSensor();
-	delay(250);
-
-	mobileGoal = -127;
-	delay(750);
-
-	claw = -127;
-	mobileGoal = 0;
+	claw = 127;
 	delay(500);
-	claw = 0;
 
-	while(SensorValue[driveSensor] > -550)
-	{
-		wrist = 500;
-		mobileGoal = -127;
-		drive = -69;
-	}
-	stopDrivingClearSensor();
-	mobileGoal = 0;
+	mobileGoal = 127;
 	delay(1000);
+	mobileGoal = 0;
 
-	turnL(400);
 
-	while(SensorValue[driveSensor] < 350)
+	while(SensorValue(driveSensor) < 190)
 	{
-		drive = 69;
-	}
-
-	stopDrivingClearSensor();
-	delay(500);
-	stopDrivingClearSensor();
-
-	turnL(330);
-
-		while(SensorValue[driveSensor] < 500)
-	{
-		drive = 127;
-	}
-
-	while(SensorValue[driveSensor] < 600)
-	{
-		drive = 127;
-		mobileGoal = 127;
-	}
-
-	stopDrivingClearSensor();
-
-	//motor[mobileL] = motor[mobileR] = 127;
-	//delay(2000);
-	//motor[mobileL] = motor[mobileR] = 0;
-
-			while(SensorValue[driveSensor] > -150)
-	{
-		drive = -127;
+		wrist = 0;
 		mobileGoal = 0;
-	}
-
-		while(SensorValue[driveSensor] > -500)
-	{
-		drive = -127;
-		mobileGoal = -127;
+		drive = 127;
 	}
 
 	stopDrivingClearSensor();
+
+	//while(SensorValue(driveSensor) < 1000)
+	//{
+	//	wrist = 20;
+	//	mobileGoal = 0;
+	//	drive = 69;
+	//}
+
+	//wrist = 0;
+	//mobileGoal = 0;
+
+	//stopDrivingClearSensor();
+	//delay(250);
+
+	//mobileGoal = -127;
+	//delay(750);
+
+	//claw = -127;
+	//mobileGoal = 0;
+	//delay(500);
+	//claw = 0;
+
+	//while(SensorValue[driveSensor] > -550)
+	//{
+	//	wrist = 500;
+	//	mobileGoal = -127;
+	//	drive = -69;
+	//}
+	//stopDrivingClearSensor();
+	//mobileGoal = 0;
+	//delay(1000);
+
+	//turnL(400);
+
+	//while(SensorValue[driveSensor] < 350)
+	//{
+	//	drive = 69;
+	//}
+
+	//stopDrivingClearSensor();
+	//delay(500);
+	//stopDrivingClearSensor();
+
+	//turnL(330);
+
+	//	while(SensorValue[driveSensor] < 500)
+	//{
+	//	drive = 127;
+	//}
+
+	//while(SensorValue[driveSensor] < 600)
+	//{
+	//	drive = 127;
+	//	mobileGoal = 127;
+	//}
+
+	//stopDrivingClearSensor();
+
+	////motor[mobileL] = motor[mobileR] = 127;
+	////delay(2000);
+	////motor[mobileL] = motor[mobileR] = 0;
+
+	//		while(SensorValue[driveSensor] > -150)
+	//{
+	//	drive = -127;
+	//	mobileGoal = 0;
+	//}
+
+	//	while(SensorValue[driveSensor] > -500)
+	//{
+	//	drive = -127;
+	//	mobileGoal = -127;
+	//}
+
+	//stopDrivingClearSensor();
 
 }
 

@@ -27,12 +27,12 @@ void clawCanMove()
 
 	if(vexRT[Btn8U] == 1)
 	{
-		claw = 127;
+		claw = 100;
 	}
 
 	else if(vexRT[Btn8D] == 1)
 	{
-		claw = -127;
+		claw = -100;
 	}
 
 	else
@@ -65,12 +65,12 @@ void mobileGoalLifter()
 {
 	if(vexRT[Btn7U] == 1)
 	{
-		mobileGoal = 127;
+		mobileGoal = -100;
 	}
 
 	else if(vexRT[Btn7D] == 1)
 	{
-		mobileGoal = -100;
+		mobileGoal = 127;
 	}
 
 	else
@@ -103,7 +103,7 @@ void stopDrivingClearSensor()
 {
 	 motor[driveL1] = motor[driveR1] = motor[driveL2] = motor[driveR2] = 0;
 
-	SensorValue(driveSensor) = SensorValue(driveRightSensor) = SensorValue[gyro] = 0;
+	SensorValue(driveSensor) = SensorValue(driveRightSensor);
 
 }
 
